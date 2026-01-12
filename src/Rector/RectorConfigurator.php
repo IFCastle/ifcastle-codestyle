@@ -10,6 +10,7 @@ use Rector\CodeQuality\Rector\Identical\FlipTypeControlToUseExclusiveTypeRector;
 use Rector\CodeQuality\Rector\Identical\SimplifyBoolIdenticalTrueRector;
 use Rector\CodeQuality\Rector\Switch_\SwitchTrueToIfRector;
 use Rector\Php84\Rector\Foreach_\ForeachToArrayAllRector;
+use Rector\Php84\Rector\Foreach_\ForeachToArrayAnyRector;
 use Rector\CodingStyle\Rector\Catch_\CatchExceptionNameMatchingTypeRector;
 use Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector;
 use Rector\CodingStyle\Rector\Encapsed\WrapEncapsedVariableInCurlyBracesRector;
@@ -84,8 +85,9 @@ class RectorConfigurator
             RemoveUnusedVariableInCatchRector::class,
             // Explicit comparison with true can be intentional for type safety
             SimplifyBoolIdenticalTrueRector::class,
-            // Foreach loops can be more readable than array_all
+            // Foreach loops can be more readable than array_all/array_any
             ForeachToArrayAllRector::class,
+            ForeachToArrayAnyRector::class,
         ]);
     }
 
