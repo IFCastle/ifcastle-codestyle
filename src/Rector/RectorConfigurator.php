@@ -6,11 +6,10 @@ namespace IfCastle\CodeStyle\Rector;
 
 use Rector\CodeQuality\Rector\ClassMethod\LocallyCalledStaticMethodToNonStaticRector;
 use Rector\CodeQuality\Rector\Concat\JoinStringConcatRector;
-use Rector\CodeQuality\Rector\Foreach_\ForeachToArrayAllRector;
 use Rector\CodeQuality\Rector\Identical\FlipTypeControlToUseExclusiveTypeRector;
 use Rector\CodeQuality\Rector\Identical\SimplifyBoolIdenticalTrueRector;
-use Rector\CodeQuality\Rector\LogicalAnd\SimplifyDeMorganBinaryRector;
 use Rector\CodeQuality\Rector\Switch_\SwitchTrueToIfRector;
+use Rector\Php84\Rector\Foreach_\ForeachToArrayAllRector;
 use Rector\CodingStyle\Rector\Catch_\CatchExceptionNameMatchingTypeRector;
 use Rector\CodingStyle\Rector\Encapsed\EncapsedStringsToSprintfRector;
 use Rector\CodingStyle\Rector\Encapsed\WrapEncapsedVariableInCurlyBracesRector;
@@ -83,8 +82,6 @@ class RectorConfigurator
             SwitchTrueToIfRector::class,
             // Can remove the variable that is used in the catch block
             RemoveUnusedVariableInCatchRector::class,
-            // De Morgan's law can make code less readable
-            SimplifyDeMorganBinaryRector::class,
             // Explicit comparison with true can be intentional for type safety
             SimplifyBoolIdenticalTrueRector::class,
             // Foreach loops can be more readable than array_all
